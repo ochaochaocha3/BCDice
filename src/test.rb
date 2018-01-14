@@ -1,5 +1,13 @@
 # -*- coding: utf-8 -*-
 
+begin
+  require 'simplecov'
+  SimpleCov.command_name('testDiceBots')
+  SimpleCov.start
+rescue LoadError, StandardError
+  $stderr.puts('simplecov is disabled.')
+end
+
 # ダイスボットのテストを起動するプログラム
 #
 # 引数の数によって処理が変わる

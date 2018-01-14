@@ -2,8 +2,12 @@ source 'https://rubygems.org'
 
 unless ENV['TRAVIS_CI'] == '1'
   gem 'net-irc'
-  gem 'wxruby-ruby19', '2.0.0'
   gem 'ocra'
+
+  WXRUBY_RUBY19_PLATFORMS = %w(x86-mingw32 x86-linux x86_64-linux)
+  if WXRUBY_RUBY19_PLATFORMS.include?(RUBY_PLATFORM)
+    gem 'wxruby-ruby19', '2.0.0'
+  end
 end
 
 group :development, :test do
@@ -13,5 +17,6 @@ group :development, :test do
   else
     gem 'rake'
     gem 'test-unit'
+    gem 'simplecov', require: false
   end
 end

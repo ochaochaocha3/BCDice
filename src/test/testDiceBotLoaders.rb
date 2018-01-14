@@ -1,5 +1,13 @@
 # -*- coding: utf-8 -*-
 
+begin
+  require 'simplecov'
+  SimpleCov.command_name('testDiceBotLoaders')
+  SimpleCov.start
+rescue LoadError, StandardError
+  $stderr.puts('simplecov is disabled.')
+end
+
 dodontof_root = File.expand_path('..', File.dirname(__FILE__))
 unless $LOAD_PATH.include?(dodontof_root)
   $LOAD_PATH.unshift(dodontof_root)
